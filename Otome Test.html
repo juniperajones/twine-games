@@ -9,570 +9,9 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Otome Test.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Otome Test" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="5CF2D45B-8247-4B44-B22D-5A91D29B52E7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-dialog {
-z-index: 999997;
-border: #fff solid 2px;
-padding: 2em;
-color: #fff;
-background-color: #000;
-display: block
-}
+<tw-storydata name="Otome Test" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="5CF2D45B-8247-4B44-B22D-5A91D29B52E7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-@media(min-width:  576px) {
-tw-dialog {
-max-width: 50vw
-}
-}
-
-tw-dialog input[type=text] {
-font-size: inherit;
-width: 100%;
-border: solid #fff !important
-}
-
-tw-dialog-links {
-text-align: right;
-display: -ms-flexbox;
-display: flex;
--ms-flex-pack: end;
-justify-content: flex-end
-}
-
-tw-backdrop {
-z-index: 999996;
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(0,0,0,.8);
-display: -ms-flexbox;
-display: flex;
--ms-flex-align: center;
-align-items: center;
--ms-flex-pack: center;
-justify-content: center
-}
-
-tw-backdrop~tw-backdrop {
-display: none
-}
-
-tw-link,.enchantment-link {
-cursor: pointer;
-color: #4169e1;
-font-weight: bold;
-text-decoration: none;
-transition: color .2s ease-in-out
-}
-
-tw-passage [style^=color] tw-link: not(: hover),tw-passage [style*=" color"] tw-link: not(: hover),tw-passage [style^=color][hover=true] tw-link: hover,tw-passage [style*=" color"][hover=true] tw-link: hover,tw-passage [style^=color] .enchantment-link: not(: hover),tw-passage [style*=" color"] .enchantment-link: not(: hover),tw-passage [style^=color][hover=true] .enchantment-link: hover,tw-passage [style*=" color"][hover=true] .enchantment-link: hover {
-color: inherit
-}
-
-tw-link: hover,.enchantment-link: hover {
-color: #00bfff
-}
-
-tw-link: active,.enchantment-link: active {
-color: #dd4b39
-}
-
-.visited {
-color: #6941e1
-}
-
-tw-passage [style^=color] .visited: not(: hover),tw-passage [style*=" color"] .visited: not(: hover),tw-passage [style^=color][hover=true] .visited: hover,tw-passage [style*=" color"][hover=true] .visited: hover {
-color: inherit
-}
-
-.visited: hover {
-color: #e3e
-}
-
-tw-broken-link {
-color: #933;
-border-bottom: 2px solid #933;
-cursor: not-allowed
-}
-
-tw-passage [style^=color] tw-broken-link: not(: hover),tw-passage [style*=" color"] tw-broken-link: not(: hover),tw-passage [style^=color][hover=true] tw-broken-link: hover,tw-passage [style*=" color"][hover=true] tw-broken-link: hover {
-color: inherit
-}
-
-tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link {
-color: inherit;
-font-weight: inherit;
-transition: none;
-cursor: inherit;
-border-bottom: 2px dashed #999
-}
-
-tw-link.enchantment-mouseover: hover,tw-link.enchantment-mouseover: active,.link.enchantment-mouseover: hover,.link.enchantment-mouseover: active,tw-expression.enchantment-mouseover>tw-link: hover,tw-expression.enchantment-mouseover>tw-link: active {
-color: inherit
-}
-
-tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button {
-border-style: dashed
-}
-
-tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link {
-color: inherit;
-font-weight: inherit;
-transition: none;
-cursor: inherit;
-border: rgba(64,149,191,.6) 1px solid;
-border-radius: .2em
-}
-
-tw-link.enchantment-mouseout: hover,tw-link.enchantment-mouseout: active,.link.enchantment-mouseout: hover,.link.enchantment-mouseout: active,tw-expression.enchantment-mouseout>tw-link: hover,tw-expression.enchantment-mouseout>tw-link: active {
-color: inherit
-}
-
-tw-link.enchantment-mouseout: hover,.link.enchantment-mouseout: hover,tw-expression.enchantment-mouseout>tw-link: hover {
-background-color: rgba(175,197,207,.75);
-border: rgba(0,0,0,0) 1px solid
-}
-
-tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link {
-color: inherit;
-font-weight: inherit;
-transition: none;
-cursor: inherit;
-cursor: pointer;
-border: 2px solid #999;
-border-radius: 0
-}
-
-tw-link.enchantment-dblclick: hover,tw-link.enchantment-dblclick: active,.link.enchantment-dblclick: hover,.link.enchantment-dblclick: active,tw-expression.enchantment-dblclick>tw-link: hover,tw-expression.enchantment-dblclick>tw-link: active {
-color: inherit
-}
-
-tw-link.enchantment-dblclick: active,.link.enchantment-dblclick: active,tw-expression.enchantment-dblclick>tw-link: active {
-background-color: #999
-}
-
-tw-link.enchantment-button,.link.enchantment-button,.enchantment-button: not(.link) tw-link,.enchantment-button: not(.link) .link {
-border-radius: 16px;
-border-style: solid;
-border-width: 2px;
-text-align: center;
-padding: 0px 8px;
-display: block
-}
-
-.enchantment-button {
-display: block
-}
-
-.enchantment-clickblock {
-cursor: pointer;
-width: 100%;
-height: 100%;
-display: block
-}
-
-.enchantment-clickblock>: not(tw-enchantment): : after {
-content: "";
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-display: block;
-box-sizing: border-box;
-position: absolute;
-pointer-events: none;
-color: rgba(65,105,225,.5);
-transition: color .2s ease-in-out
-}
-
-.enchantment-clickblock>: not(tw-enchantment): hover: : after {
-color: rgba(0,191,255,.5)
-}
-
-.enchantment-clickblock>: not(tw-enchantment): active: : after {
-color: rgba(222,78,59,.5)
-}
-
-.enchantment-clickblock>: not(tw-enchantment): : after {
-box-shadow: inset 0 0 0 .5vmax
-}
-
-.enchantment-clickblock>tw-passage: : after,.enchantment-clickblock>tw-sidebar: : after {
-box-shadow: 0 0 0 .5vmax
-}
-
-.enchantment-mouseoverblock>: not(tw-enchantment): : after {
-content: "";
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-display: block;
-box-sizing: border-box;
-position: absolute;
-pointer-events: none;
-border: 2px dashed #999
-}
-
-.enchantment-mouseoutblock>: not(tw-enchantment): : after {
-content: "";
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-display: block;
-box-sizing: border-box;
-position: absolute;
-pointer-events: none;
-border: rgba(64,149,191,.6) 2px solid
-}
-
-.enchantment-mouseoutblock: hover>: not(tw-enchantment): : after {
-content: "";
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-display: block;
-box-sizing: border-box;
-position: absolute;
-pointer-events: none;
-background-color: rgba(175,197,207,.75);
-border: rgba(0,0,0,0) 2px solid;
-border-radius: .2em
-}
-
-.enchantment-dblclickblock>: not(tw-enchantment): : after {
-content: "";
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-display: block;
-box-sizing: border-box;
-position: absolute;
-pointer-events: none;
-cursor: pointer;
-border: 2px solid #999
-}
-
-tw-dialog-links {
-padding-top: 1.5em
-}
-
-tw-dialog-links tw-link {
-border-radius: 16px;
-border-style: solid;
-border-width: 2px;
-text-align: center;
-padding: 0px 8px;
-display: block;
-display: inline-block
-}
-
-html {
-margin: 0;
-height: 100%;
-overflow-x: hidden
-}
-
-*,: before,: after {
-position: relative;
-box-sizing: inherit
-}
-
-body {
-margin: 0;
-height: 100%
-}
-
-tw-storydata {
-display: none
-}
-
-tw-story {
-display: -ms-flexbox;
-display: flex;
--ms-flex-direction: column;
-flex-direction: column;
-font: 100% Georgia,serif;
-box-sizing: border-box;
-width: 100%;
-min-height: 100%;
-font-size: 1.5em;
-line-height: 1.5em;
-padding: 5% 5%;
-overflow: hidden;
-background-color: #000;
-color: #fff
-}
-
-tw-story [style*=content-box] * {
-box-sizing: border-box
-}
-
-@media(min-width:  576px) {
-tw-story {
-padding: 5% 20%
-}
-}
-
-tw-story tw-consecutive-br {
-display: block;
-height: 1.6ex;
-visibility: hidden
-}
-
-tw-story select {
-background-color: rgba(0,0,0,0);
-font: inherit;
-border-style: solid;
-padding: 2px
-}
-
-tw-story select: not([disabled]) {
-color: inherit
-}
-
-tw-story textarea {
-resize: none;
-background-color: rgba(0,0,0,0);
-font: inherit;
-color: inherit;
-border-style: none;
-padding: 2px
-}
-
-tw-story input[type=text] {
-background-color: rgba(0,0,0,0);
-font: inherit;
-color: inherit;
-border-style: none
-}
-
-tw-story input[type=checkbox] {
-transform: scale(1.5);
-margin: 0 .5em .5em .5em;
-vertical-align: middle
-}
-
-tw-story tw-noscript {
-animation: appear .8s
-}
-
-tw-passage {
-display: block
-}
-
-tw-sidebar {
-text-align: center;
-display: -ms-flexbox;
-display: flex;
--ms-flex-pack: justify;
-justify-content: space-between
-}
-
-@media(min-width:  576px) {
-tw-sidebar {
-left: -5em;
-width: 3em;
-position: absolute;
--ms-flex-direction: column;
-flex-direction: column
-}
-tw-enchantment[style*=width]>tw-sidebar {
-width: inherit
-}
-}
-
-tw-icon {
-display: inline-block;
-margin: .5em 0;
-font-size: 66px;
-font-family: "Verdana",sans-serif
-}
-
-tw-icon[alt] {
-opacity: .2;
-cursor: pointer
-}
-
-tw-icon[alt]: hover {
-opacity: .4
-}
-
-tw-icon[data-label]: : after {
-font-weight: bold;
-content: attr(data-label);
-font-size: 20px;
-bottom: -20px;
-left: -50%;
-white-space: nowrap
-}
-
-tw-meter {
-display: block
-}
-
-tw-hook: empty,tw-expression: empty {
-display: none
-}
-
-tw-error {
-display: inline-block;
-border-radius: .2em;
-padding: .2em;
-font-size: 1rem;
-cursor: help;
-white-space: pre-wrap
-}
-
-tw-error.error {
-background-color: rgba(223,58,190,.6);
-color: #fff
-}
-
-tw-error.warning {
-background-color: rgba(223,140,58,.6);
-color: #fff;
-display: none
-}
-
-.debug-mode tw-error.warning {
-display: inline
-}
-
-tw-error-explanation {
-display: block;
-font-size: .8rem;
-line-height: 1rem
-}
-
-tw-open-button,tw-folddown {
-cursor: pointer;
-line-height: 0em;
-border-radius: 4px;
-border: 1px solid rgba(255,255,255,.5);
-font-size: .8rem;
-margin: 0 .4rem;
-padding: 3px;
-white-space: pre
-}
-
-tw-folddown: : after {
-content: "▶"
-}
-
-tw-folddown.open: : after {
-content: "▼"
-}
-
-tw-open-button[replay] {
-display: none
-}
-
-tw-error tw-open-button,tw-eval-replay tw-open-button {
-display: inline !important
-}
-
-tw-open-button: : after {
-content: attr(label)
-}
-
-tw-notifier {
-border-radius: .2em;
-padding: .2em;
-font-size: 1rem;
-background-color: rgba(223,182,58,.4);
-display: none
-}
-
-.debug-mode tw-notifier {
-display: inline
-}
-
-tw-notifier: : before {
-content: attr(message)
-}
-
-tw-colour {
-border: 1px solid #000;
-display: inline-block;
-width: 1em;
-height: 1em
-}
-
-tw-enchantment: empty {
-display: none
-}
-
-h1 {
-font-size: 3em
-}
-
-h2 {
-font-size: 2.25em
-}
-
-h3 {
-font-size: 1.75em
-}
-
-h1,h2,h3,h4,h5,h6 {
-line-height: 1em;
-margin: .3em 0 .6em 0
-}
-
-pre {
-font-size: 1rem;
-line-height: initial
-}
-
-small {
-font-size: 70%
-}
-
-big {
-font-size: 120%
-}
-
-mark {
-color: rgba(0,0,0,.6);
-background-color: #ff9
-}
-
-ins {
-color: rgba(0,0,0,.6);
-background-color: rgba(255,242,204,.5);
-border-radius: .5em;
-box-shadow: 0em 0em .2em #ffe699;
-text-decoration: none
-}
-
-center {
-text-align: center;
-margin: 0 auto;
-width: 60%
-}
-
-blink {
-text-decoration: none;
-animation: fade-in-out 1s steps(1, end) infinite alternate
-}
-
-tw-align {
-display: block
-}
-
-tw-columns {
-display: -ms-flexbox;
-display: flex;
--ms-flex-direction: row;
-flex-direction: row;
--ms-flex-pack: justify;
-justify-content: space-between
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Player Info" tags="" position="100,0" size="100,100">Welcome to the land of Merria!
+tw-passage { font-family: 'Vollkorn', serif; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Player Info" tags="" position="100,0" size="100,100">Welcome to the land of Merria!
 
 Before we get started, what should I call you?
 (input: bind $player, &quot;X==&quot;, &quot;Jessie&quot;)\
@@ -666,7 +105,7 @@ $grace to (random: 2, 10),
 $charm to (random: 2, 10), 
 $wits to (random: 2, 10))\
 \
-&lt;!-- Suitors (out of 5) --&gt;\
+\&lt;!-- Suitors (out of 5) --&gt;\
 (set: $EmilLove to 1,
 $FerdinandLove to 2,
 $GerardLove to 0,
@@ -674,11 +113,11 @@ $HerneLove to 1,
 $IsabelLove to 2,
 $JacquelineLove to 0)\
 \
-&lt;!-- Inventory --&gt;\
+\&lt;!-- Inventory --&gt;\
 (set: $bag to (array:))
 (set: $worn to (array:))\
 \
-&lt;!-- Git Messages
+\&lt;!-- Git Messages
 git commit -a -m &quot;Message&quot;
 git push master
 --&gt;</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
@@ -697,7 +136,9 @@ Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun 
 
 &quot;I //said,// you&#39;ll be having breakfast with Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley, lunch with Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell. All of your guests will be staying for dinner, of course, and should be around the manor, should you wish to speak to them. Imagine meeting with all of your matches in one day! This should be quite instructive.&quot; They finish laying out your clothes for the day and gesture to them.
 
-&quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the [[yellow|Yellow Outfit]] is more energetic. The [[red|Red Outfit]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
+&quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the [[yellow|Yellow Outfit]] is more energetic. The [[red|Red Outfit]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;
+
+[[&gt; Wait, who are all these people?|Cast]]]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
 
 (if: $bag&#39;s length is 0)[Uh oh, there&#39;s nothing here.](else:)[Your bag contains the following:
 (print: $bag + (&quot;\n&quot;))]
@@ -773,18 +214,18 @@ On the one hand, your lady mother has deemed you unworthy of the Allbright fortu
 
 On the other hand, you&#39;ve got free run of the house and its grounds, along with six of the most attractive and eligible singletons in Merria. And who&#39;s to say you can&#39;t get up to something (if: $p_age is &quot;over 18&quot;)[saucy ]now that it&#39;s just you, your suitors, and the staff?
 
-Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re perfectly capable, and made sure your hair was just so to make the best impression on... Blast it, what were their names again? \
+Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re perfectly capable, and made sure your hair was just so to make the best impression on... Blast it, what were their names again?\
  
 (if: $worn is &quot;red&quot;)[(set: $FerdinandLove to $FerdinandLove + 1)]\
 
 &quot;You seem lost in thought, $Honorific Allbright,&quot; resounds a voice like mead - sweet, intoxicating, and //far// too decadent for so early in the morning.
 
-(if: $wits is &gt;7)[You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]\
+(if: $wits is &gt;7)[You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]
 (link-reveal: &quot;&gt; Why Lord Rackley, I hardly spied you there. What are you doing, lurking behind the statuary like that?&quot;, (action:&quot;click&quot;))[
 
 The Lord of the Rackley estates steps out from behind a marble statue of a barely-clothed dancer.
 &quot;Why, only waiting for you, my dear $ref. I understand your lady mother has roped you into //quite// the production.&quot;
-
+\
 (if: $charm is &gt;7)[Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]
 (link-reveal: &quot;&gt; Yes, it //is// quite a lot to go through for such a young $ref.&quot;, (action:&quot;click&quot;))[
 
@@ -796,7 +237,49 @@ As soon as you enter the more informal dining room, the other two suitors rise f
 
 **(IF YOU ARE PLAYTESTING, THIS IS THE END - PRESS BELOW TO RESTART)**
 
-Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata></tw-storydata>
+Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata><tw-passagedata pid="13" name="Cast" tags="" position="200,300" size="100,100">Victoria stops mid-stride. &quot;Why, $honorific, they are your suitors. Your lady mother-&quot;
+
+(link-reveal: &quot;&gt; No, no, I know all that. Who are they //specifically?//&quot;, (action:&quot;click&quot;))[
+
+Here they seem to be on firmer ground. &quot;That depends on who strikes your fancy, $Honorific $player.\
+
+* There&#39;s [Ser Emil Danforth]&lt;emil|,
+* [Miss Jacqueline Collins]&lt;jaqueline|,
+* [Lord Ferdinand Rackley]&lt;ferdinand|,
+* [Lord Gerard Henbrooke]&lt;gerard|,
+* [Lady Isabel Dominguez]&lt;isabel|,
+* and [Ser Herne Avrilfell]&lt;herne|.\
+
+Which one were you curious about?
+
+[]&lt;space|
+(click: ?emil)[(replace:?space)[Ser Emil is ]]\
+(click: ?jaqueline)[(replace:?space)[Miss Jacqueline is ]]\
+(click: ?ferdinand)[(replace:?space)[Lord Ferdinand is ]]\
+(click: ?gerard)[(replace:?space)[Lord Gerard is ]]\
+(click: ?isabel)[(replace:?space)[Lady Isabel is ]]\
+(click: ?herne)[(replace:?space)[Ser Herne is ]
+
+Now, was that all? Shall we get back to choosing your (if: $pronoun is &quot;she/her&quot;)[gown](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] for today?
+
+Take a look at the [[red|Red Outfit]] one, at least.&quot;]]</tw-passagedata><tw-passagedata pid="14" name="NOTES" tags="" position="0,300" size="100,100">Emil: same age as $player, enby, human
+
+
+Ferdinand: 
+
+
+Gerard: 
+
+
+Herne: 
+
+
+Isabel: 
+
+
+Jacqueline: 
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
