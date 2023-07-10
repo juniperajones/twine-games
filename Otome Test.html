@@ -596,7 +596,7 @@ You happen to be \
 Does that sound right?
 
 [[Yes|Stopover]]
-[[No|Player Info]]]</tw-passagedata><tw-passagedata pid="2" name="Stopover" tags="" position="200,0" size="100,100">(if: $pronoun is &quot;she/her&quot;)[
+[[No|Restart]]]</tw-passagedata><tw-passagedata pid="2" name="Stopover" tags="" position="200,0" size="100,100">(if: $pronoun is &quot;she/her&quot;)[
 (set: $they to &quot;she&quot;,
 $them to &quot;her&quot;,
 $their to &quot;her&quot;,
@@ -659,31 +659,29 @@ $Honorific to &quot;Ser&quot;)]
 (if: $p_age is &quot;under 18&quot;)[(set: $ref to $youth, $Ref to $Youth)]
 (if: $p_age is &quot;over 18&quot;)[(set: $ref to $adult, $Ref to $Adult)]
 
-(goto:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">&lt;!-- Stats (out of 10) --&gt;
+(goto:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">&lt;!-- Stats (out of 10) --&gt;\
 (set: $strength to (random: 2, 10),
 $fortitude to (random: 2, 10), 
 $grace to (random: 2, 10), 
 $charm to (random: 2, 10), 
-$wits to (random: 2, 10))
-
-&lt;!-- Suitors (out of 5) --&gt;
+$wits to (random: 2, 10))\
+\
+&lt;!-- Suitors (out of 5) --&gt;\
 (set: $EmilLove to 1,
 $FerdinandLove to 2,
 $GerardLove to 0,
 $HerneLove to 1,
 $IsabelLove to 2,
-$JacquelineLove to 0)
-
-&lt;!-- Inventory --&gt;
+$JacquelineLove to 0)\
+\
+&lt;!-- Inventory --&gt;\
 (set: $bag to (array:))
-(set: $worn to (array:))
-
+(set: $worn to (array:))\
+\
 &lt;!-- Git Messages
 git commit -a -m &quot;Message&quot;
 git push master
---&gt;
-
-</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+--&gt;</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
 
 You rustle amidst the blankets, (if: $grace &gt;5)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
@@ -767,7 +765,7 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;red&quot;)]
 &gt; I&#39;ll look at the [[yellow|Yellow Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
 &gt; I&#39;ll look at the [[blue|Blue Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
-</tw-passagedata><tw-passagedata pid="9" name="Interruption" tags="" position="500,100" size="100,100">&lt;!-- NPCs present: Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley --&gt;\
+</tw-passagedata><tw-passagedata pid="9" name="Interruption" tags="" position="500,100" size="100,100">&lt;!-- NPCs present: Lord Ferdinand Rackley --&gt;\
 \
 As you descend the curling staircase, your hand trailing on the marble banister, you consider your lot for this week.
 
@@ -787,12 +785,18 @@ Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re pe
 The Lord of the Rackley estates steps out from behind a marble statue of a barely-clothed dancer.
 &quot;Why, only waiting for you, my dear $ref. I understand your lady mother has roped you into //quite// the production.&quot;
 
-(if: $charm is &gt;7)[Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]\
+(if: $charm is &gt;7)[Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]
 (link-reveal: &quot;&gt; Yes, it //is// quite a lot to go through for such a young $ref.&quot;, (action:&quot;click&quot;))[
 
 Lord Rackley chuckles, &quot;Truly, a tragedy.&quot; He gestures towards the informal dining room, &quot;Shall we?&quot;
 
-[[&gt; We shall.|Breakfast]]]]</tw-passagedata><tw-passagedata pid="10" name="Lunch" tags="" position="600,600" size="100,100">&lt;!-- NPCs present: Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell --&gt;</tw-passagedata><tw-passagedata pid="11" name="Breakfast" tags="" position="600,100" size="100,100"></tw-passagedata></tw-storydata>
+[[&gt; We shall.|Breakfast]]]]</tw-passagedata><tw-passagedata pid="10" name="Lunch" tags="" position="600,600" size="100,100">&lt;!-- NPCs present: Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell --&gt;</tw-passagedata><tw-passagedata pid="11" name="Breakfast" tags="" position="600,100" size="100,100">&lt;!-- NPCs present: Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley --&gt;\
+\
+As soon as you enter the more informal dining room, the other two suitors rise from their chairs.
+
+**(IF YOU ARE PLAYTESTING, THIS IS THE END - PRESS BELOW TO RESTART)**
+
+Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
