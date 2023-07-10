@@ -676,17 +676,24 @@ $JacquelineLove to 0)
 
 &lt;!-- Inventory --&gt;
 (set: $bag to (array:))
-(set: $worn to (array:))</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+(set: $worn to (array:))
 
-You rustle amidst the blankets, (if: $grace &gt;5)[and slip out of the bed unnoticed by the maid sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the maid now ](else:)[You&#39;re able to make it to the door before the maid awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby maid startles awake and ]stands to pull the curtains open, flooding the room with bright light.
+&lt;!-- Git Messages
+git commit -a -m &quot;Message&quot;
+git push master
+--&gt;
+
+</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+
+You rustle amidst the blankets, (if: $grace &gt;5)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
 &quot;Good morning, $Honorific $player!&quot; They say, turning to face you while backlit from the glaring sunlight.
 
 (link-reveal: &quot;&gt; Good morning?&quot;, (action:&quot;click&quot;))[
 
-&quot;You&#39;ll be quite busy today, $honorific, I&#39;m afraid,&quot; they say, bustling about the spacious room and throwing open the wardrobe before hauling out three fine-looking (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits] and hanging them on hooks to display their refined style in the sunlight.
+&quot;You&#39;ll be quite busy today, $honorific, I&#39;m afraid,&quot; Victoria says, bustling about the spacious room and throwing open the wardrobe before hauling out three fine-looking (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits] and hanging them on hooks to display their refined style in the sunlight.
 
-Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits], you realize that the maid had been saying something.
+Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits], you realize that the servant had been saying something.
 
 (link-reveal: &quot;&gt; What was that?&quot;, (action:&quot;click&quot;))[
 
@@ -694,22 +701,22 @@ Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun 
 
 &quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the [[yellow|Yellow Outfit]] is more energetic. The [[red|Red Outfit]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
 
-(if: $bag&#39;s length is 0)(else:)[Your bag contains the following:
+(if: $bag&#39;s length is 0)[Uh oh, there&#39;s nothing here.](else:)[Your bag contains the following:
 (print: $bag + (&quot;\n&quot;))]
 
 You are wearing:
 
-$worn</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" position="400,200" size="100,100">You walk up to the blue (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
+The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit].</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" position="400,200" size="100,100">You walk up to the blue (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The maid was right, this dress certainly feels lovely. Labradorite chips glisten along the curve of the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The maid was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref.]\
-(else:)[The maid was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a health $ref.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels luscious. Labradorite chips glisten along the curve of the bodice, while the full skirt will brush the floor. Silver embroidery graces the long sleeves, the metallic threads shimmering in the sunlight. This dress would be perfect for an elegant $ref.]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels luxurious. The navy blue slack and jacket have subtle silver pinstripes that emphasize your physique, while the paler jacquard waistcoat is studded with labradorite buttons. Everything about this suit oozes class and style. Perfect for an elegant $ref.]\
+(else:)[The servant was right, this outfit certainly feels lovely. The pale blue tunic hangs below the knees, with a slit up to the hip. A silver chain belt will help the otherwise shapeless tunic show off your figure, while deep cobalt slacks with wide legs round out the outfit. Each piece is brushed with silver embroidery, and the belt is held fast with a labradorite brooch. Seems like the perfect thing for an elegant $ref.]
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
-(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear the blue one today.&quot;, &quot;Breakfast&quot;)[(set:$worn to &quot;blue&quot;)]
+(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;blue&quot;)]
 &gt; I&#39;ll look at the [[red|Red Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
 &gt; I&#39;ll look at the [[yellow|Yellow Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
 
@@ -736,31 +743,56 @@ $worn</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" positio
 
 </tw-passagedata><tw-passagedata pid="7" name="Yellow Outfit" tags="" position="400,0" size="100,100">You walk up to the yellow (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The maid was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The maid was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref.]\
-(else:)[The maid was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a health $ref.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref.]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref.]\
+(else:)[The servant was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a healthy $ref.]
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
-(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear the yellow one today.&quot;, &quot;Breakfast&quot;)[(set:$worn to &quot;yellow&quot;)]
+(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;yellow&quot;)]
 &gt; I&#39;ll look at the [[red|Red Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
 &gt; I&#39;ll look at the [[blue|Blue Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
 </tw-passagedata><tw-passagedata pid="8" name="Red Outfit" tags="" position="400,100" size="100,100">You walk up to the red (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The maid was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The maid was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref.]\
-(else:)[The maid was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a health $ref.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels scintillating. Garnet chips seem to pulse along the low-cut bodice, while the skirt drapes down past the floor, although it&#39;s anything but modest with that slit halfway up the hip. It&#39;s sleeveless, and nearly backless, with the gathered silk trailing down each shoulder like a chiton. This would be perfect for a $ref with passion on her mind.]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels fiery. While not entirely red, the ebony black slacks and jacket almost absorb the sunlight, making the deep, ember-colored waistcoat stand out all the more. Black pinstripes are nearly invisible against the dark suit, but something about that and the cut just oozes sensuality. Perfect for a $ref with passion on his mind.]\
+(else:)[The servant was right, this outfit certainly feels scandalous. The garnet tunic ends just past the hips, with slits up to the sleeves held fast with black cord. A garnet studded black belt will help accentuate your figure, while darker than black slacks with wide legs round out the outfit. Each piece is graced with traces of ebony embroidery. Seems like the perfect thing for a $ref with passion on their mind.]
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
-(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear the red one today.&quot;, &quot;Breakfast&quot;)[(set:$worn to &quot;red&quot;)]
+(link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;red&quot;)]
 &gt; I&#39;ll look at the [[yellow|Yellow Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
 &gt; I&#39;ll look at the [[blue|Blue Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
-</tw-passagedata><tw-passagedata pid="9" name="Breakfast" tags="" position="500,100" size="100,100">Foodfood</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="9" name="Interruption" tags="" position="500,100" size="100,100">&lt;!-- NPCs present: Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley --&gt;\
+\
+As you descend the curling staircase, your hand trailing on the marble banister, you consider your lot for this week.
+
+On the one hand, your lady mother has deemed you unworthy of the Allbright fortune unless you marry, and has sworn that she will choose for you if you are unable to gain anyone&#39;s hand during this visit.
+
+On the other hand, you&#39;ve got free run of the house and its grounds, along with six of the most attractive and eligible singletons in Merria. And who&#39;s to say you can&#39;t get up to something (if: $p_age is &quot;over 18&quot;)[saucy ]now that it&#39;s just you, your suitors, and the staff?
+
+Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re perfectly capable, and made sure your hair was just so to make the best impression on... Blast it, what were their names again? \
+ 
+(if: $worn is &quot;red&quot;)[(set: $FerdinandLove to $FerdinandLove + 1)]\
+
+&quot;You seem lost in thought, $Honorific Allbright,&quot; resounds a voice like mead - sweet, intoxicating, and //far// too decadent for so early in the morning.
+
+(if: $wits is &gt;7)[You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]\
+(link-reveal: &quot;&gt; Why Lord Rackley, I hardly spied you there. What are you doing, lurking behind the statuary like that?&quot;, (action:&quot;click&quot;))[
+
+The Lord of the Rackley estates steps out from behind a marble statue of a barely-clothed dancer.
+&quot;Why, only waiting for you, my dear $ref. I understand your lady mother has roped you into //quite// the production.&quot;
+
+(if: $charm is &gt;7)[Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]\
+(link-reveal: &quot;&gt; Yes, it //is// quite a lot to go through for such a young $ref.&quot;, (action:&quot;click&quot;))[
+
+Lord Rackley chuckles, &quot;Truly, a tragedy.&quot; He gestures towards the informal dining room, &quot;Shall we?&quot;
+
+[[&gt; We shall.|Breakfast]]]]</tw-passagedata><tw-passagedata pid="10" name="Lunch" tags="" position="600,600" size="100,100">&lt;!-- NPCs present: Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell --&gt;</tw-passagedata><tw-passagedata pid="11" name="Breakfast" tags="" position="600,100" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
