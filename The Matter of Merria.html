@@ -134,11 +134,7 @@ $JacquelineLove to 2)\
 \&lt;!-- Inventory --&gt;\
 (set: $bag to (array:))
 (set: $worn to (array:))\
-\
-\&lt;!-- Git Messages
-git commit -a -m &quot;Message&quot;
-git push master
---&gt;</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in a room not so different from your own. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
 
 You rustle amidst the blankets, (if: $grace &gt;5)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
@@ -165,17 +161,20 @@ You are wearing:
 
 The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit].</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" position="400,200" size="100,100">You walk up to the blue (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels luscious. Labradorite chips glisten along the curve of the bodice, while the full skirt will brush the floor. Silver embroidery graces the long sleeves, the metallic threads shimmering in the sunlight. This dress would be perfect for an elegant $ref.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels luxurious. The navy blue slack and jacket have subtle silver pinstripes that emphasize your physique, while the paler jacquard waistcoat is studded with labradorite buttons. Everything about this suit oozes class and style. Perfect for an elegant $ref.]\
-(else:)[The servant was right, this outfit certainly feels lovely. The pale blue tunic hangs below the knees, with a slit up to the hip. A silver chain belt will help the otherwise shapeless tunic show off your figure, while deep cobalt slacks with wide legs round out the outfit. Each piece is brushed with silver embroidery, and the belt is held fast with a labradorite brooch. Seems like the perfect thing for an elegant $ref.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels luscious. Labradorite chips glisten along the curve of the bodice, while the full skirt will brush the floor. Silver embroidery graces the long sleeves, the metallic threads shimmering in the sunlight. This dress would be perfect for an elegant $ref]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels luxurious. The navy blue slack and jacket have subtle silver pinstripes that emphasize your physique, while the paler jacquard waistcoat is studded with labradorite buttons. Everything about this suit oozes class and style. Perfect for an elegant $ref]\
+(else:)[The servant was right, this outfit certainly feels lovely. The pale blue tunic hangs below the knees, with a slit up to the hip. A silver chain belt will help the otherwise shapeless tunic show off your figure, while deep cobalt slacks with wide legs round out the outfit. Each piece is brushed with silver embroidery, and the belt is held fast with a labradorite brooch. Seems like the perfect thing for an elegant $ref]\
+(if: $wits &gt;=8)[ like myself]\
+(else-if: $grace &gt;=8)[ like myself]\
+(else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;blue&quot;)]
-&gt; I&#39;ll look at the [[red|Red Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the [[yellow|Yellow Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
 
 
 
@@ -200,30 +199,36 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 
 </tw-passagedata><tw-passagedata pid="7" name="Yellow Outfit" tags="" position="400,0" size="100,100">You walk up to the yellow (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref.]\
-(else:)[The servant was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a healthy $ref.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref]\
+(else:)[The servant was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a healthy $ref]\
+(if: $strength &gt;=8)[ like myself]\
+(else-if: $fortitude &gt;=8)[ like myself]\
+(else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;yellow&quot;)]
-&gt; I&#39;ll look at the [[red|Red Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the [[blue|Blue Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:&quot;blue&quot;)[[[blue|Blue Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
 </tw-passagedata><tw-passagedata pid="8" name="Red Outfit" tags="" position="400,100" size="100,100">You walk up to the red (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
 
-(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels scintillating. Garnet chips seem to pulse along the low-cut bodice, while the skirt drapes down past the floor, although it&#39;s anything but modest with that slit halfway up the hip. It&#39;s sleeveless, and nearly backless, with the gathered silk trailing down each shoulder like a chiton. This would be perfect for a $ref with passion on her mind.]\
-(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels fiery. While not entirely red, the ebony black slacks and jacket almost absorb the sunlight, making the deep, ember-colored waistcoat stand out all the more. Black pinstripes are nearly invisible against the dark suit, but something about that and the cut just oozes sensuality. Perfect for a $ref with passion on his mind.]\
-(else:)[The servant was right, this outfit certainly feels scandalous. The garnet tunic ends just past the hips, with slits up to the sleeves held fast with black cord. A garnet studded black belt will help accentuate your figure, while darker than black slacks with wide legs round out the outfit. Each piece is graced with traces of ebony embroidery. Seems like the perfect thing for a $ref with passion on their mind.]
+(if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels scintillating. Garnet chips seem to pulse along the low-cut bodice, while the skirt drapes down past the floor, although it&#39;s anything but modest with that slit halfway up the hip. It&#39;s sleeveless, with the gathered silk trailing down each shoulder like a chiton. This would be perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on her mind...]\
+(else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels fiery. While not entirely red, the ebony black slacks and jacket almost absorb the sunlight, making the deep, ember-colored waistcoat stand out all the more. Black pinstripes are nearly invisible against the dark suit, but something about that and the cut just oozes sensuality. Perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on his mind...]\
+(else:)[The servant was right, this outfit certainly feels scandalous. The garnet tunic ends just past the hips, with slits up to the sleeves held fast with black cord. A garnet studded black belt will help accentuate your figure, while darker than black slacks with wide legs round out the outfit. Each piece is graced with traces of ebony embroidery. Seems like the perfect thing for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on their mind...]\
+(if: $charm &gt;=8)[ like me]\
+(else-if: $grace &gt;=8)[ like me]\
+(else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
 
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;red&quot;)]
-&gt; I&#39;ll look at the [[yellow|Yellow Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the [[blue|Blue Outfit]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color: &quot;blue&quot;)[[[blue|Blue Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
 </tw-passagedata><tw-passagedata pid="9" name="Interruption" tags="" position="500,100" size="100,100">&lt;!-- NPCs present: Lord Ferdinand Rackley --&gt;\
 \
 As you descend the curling staircase, your hand trailing on the marble banister, you consider your lot for this week.
@@ -280,9 +285,19 @@ Which one were you curious about?
 (click: ?isabel)[(replace:?space)[Lady Isabel is ]]\
 (click: ?herne)[(replace:?space)[Ser Herne is ]
 
-Now, was that all? Shall we get back to choosing your (if: $pronoun is &quot;she/her&quot;)[gown](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] for today?
+(more:)[Now, was that all? Shall we get back to choosing your (if: $pronoun is &quot;she/her&quot;)[gown](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] for today?
 
-Take a look at the [[red|Red Outfit]] one, at least.&quot;]]</tw-passagedata><tw-passagedata pid="14" name="NOTES" tags="" position="0,300" size="100,100">Emil: same age as player, afab enby, human
+Take a look at the (if: $strength is &gt;=8)[[[yellow|Yellow Outfit]]]\
+(else-if: $fortitude is &gt;=8)[[[yellow|Yellow Outfit]]]\
+(else-if: $grace is &gt;=8)[(either: [[blue|Blue Outfit]], [[red|Red Outfit]])]\
+(else-if: $wits is &gt;=8)[[[blue|Blue Outfit]]]\
+(else-if: $charm is &gt;=8)[[[red|Red Outfit]]]\
+(else:)[(either: [[red|Red Outfit]], [[blue|Blue Outfit]], [[yellow|Yellow Outfit]])] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit], at least. I think it suits you.&quot;]]]</tw-passagedata><tw-passagedata pid="14" name="NOTES" tags="" position="0,300" size="100,100">&lt;!-- Git Messages
+git commit -a -m &quot;Message&quot;
+git push
+--&gt;
+
+Emil: same age as player, afab enby, human
 Highest stat: Grace 
 2nd highest: Fortitude
 Lowest stat: Charm
