@@ -11,6 +11,22 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Matter of Merria.</tw-noscript></noscript></tw-story>
 <tw-storydata name="The Matter of Merria" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="5CF2D45B-8247-4B44-B22D-5A91D29B52E7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+tw-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%; /* padding-right of the tw-story element. */
+  max-height: 100%;
+  margin-top: 5%; /* padding-top of the tw-story element. */
+  padding: 0 0.5em 0.5em 0.5em;
+  text-align: right;
+  background-color: transparent;
+}
+tw-icon {
+  text-align: right;
+  padding-right: 0.75em;
+}
+
 tw-passage { font-family: 'Vollkorn', serif; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Player Info" tags="" position="100,0" size="100,100">Welcome to\
 \
 ## The Matter of Merria\
@@ -112,8 +128,8 @@ $wits to (random: 2, 10))\
 $FerdinandLove to 2,
 $GerardLove to 0,
 $HerneLove to 1,
-$IsabelLove to 2,
-$JacquelineLove to 0)\
+$IsabelLove to 0,
+$JacquelineLove to 2)\
 \
 \&lt;!-- Inventory --&gt;\
 (set: $bag to (array:))
@@ -138,7 +154,7 @@ Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun 
 
 &quot;I //said,// you&#39;ll be having breakfast with Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley, lunch with Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell. All of your guests will be staying for dinner, of course, and should be around the manor, should you wish to speak to them. Imagine meeting with all of your matches in one day! This should be quite instructive.&quot; They finish laying out your clothes for the day and gesture to them.
 
-&quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the [[yellow|Yellow Outfit]] is more energetic. The [[red|Red Outfit]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;
+&quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] is more energetic. The (text-color:#dd3333)[[[red|Red Outfit]]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;
 
 [[&gt; Wait, who are all these people?|Cast]]]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
 
@@ -219,16 +235,18 @@ On the other hand, you&#39;ve got free run of the house and its grounds, along w
 Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re perfectly capable, and made sure your hair was just so to make the best impression on... Blast it, what were their names again?\
  
 (if: $worn is &quot;red&quot;)[(set: $FerdinandLove to $FerdinandLove + 1)]\
-
+\
 &quot;You seem lost in thought, $Honorific Allbright,&quot; resounds a voice like mead - sweet, intoxicating, and //far// too decadent for so early in the morning.
 
-(if: $wits is &gt;7)[You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]
+(if: $wits is &gt;7)[
+You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]
 (link-reveal: &quot;&gt; Why Lord Rackley, I hardly spied you there. What are you doing, lurking behind the statuary like that?&quot;, (action:&quot;click&quot;))[
 
 The Lord of the Rackley estates steps out from behind a marble statue of a barely-clothed dancer.
 &quot;Why, only waiting for you, my dear $ref. I understand your lady mother has roped you into //quite// the production.&quot;
 \
-(if: $charm is &gt;7)[Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]
+(if: $charm is &gt;7)[
+Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]
 (link-reveal: &quot;&gt; Yes, it //is// quite a lot to go through for such a young $ref.&quot;, (action:&quot;click&quot;))[
 
 Lord Rackley chuckles, &quot;Truly, a tragedy.&quot; He gestures towards the informal dining room, &quot;Shall we?&quot;
@@ -264,24 +282,65 @@ Which one were you curious about?
 
 Now, was that all? Shall we get back to choosing your (if: $pronoun is &quot;she/her&quot;)[gown](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] for today?
 
-Take a look at the [[red|Red Outfit]] one, at least.&quot;]]</tw-passagedata><tw-passagedata pid="14" name="NOTES" tags="" position="0,300" size="100,100">Emil: same age as $player, enby, human
+Take a look at the [[red|Red Outfit]] one, at least.&quot;]]</tw-passagedata><tw-passagedata pid="14" name="NOTES" tags="" position="0,300" size="100,100">Emil: same age as player, afab enby, human
+Highest stat: Grace 
+2nd highest: Fortitude
+Lowest stat: Charm
+Relationship prior to start: school acquaintances
+Notable traits: 
+* Excels at anything physical, especially sports
+* Less tact than poster putty
+* Kind-hearted puppy
 
+Ferdinand: slightly older than player, cismale, elfkin/incubus
+Highest stat: Charm
+2nd highest: Grace
+Lowest stat: Wit
+Relationship prior to start: friendly rivals
+Notable traits: 
+* Mischevious, playful, teasing
+* Doesn&#39;t care for other&#39;s feelings
+* Rakish, rogue, but would be *your* rakish rogue
 
-Ferdinand: 
+Gerard: older than player, cismale, hurokin?
+Highest stat: Strength
+2nd highest: Fortitude
+Lowest stat: Charm
+Relationship prior to start: student/tutor (chilly)
+Notable traits: 
+* Tutored player in swordplay, riding, other physical subjects
+* Expects player to be afraid of him, even now
+* Surprisingly warm once his walls come down (cuddly)
 
+Herne: older than player, amab enby, human/fey-touched (satyr)
+Highest stat: Wit
+2nd Highest: Charm
+Lowest stat: Fortitude
+Relationship prior to start: student/tutor (friendly)
+Notable traits: 
+* Uninterested in small talk, loves deep, philosophical conversations
+* Slow, methodical, meticulous in everything they do (even sex)
+* Librarian-type, bookish, unlikely to like player unless they can speak on the same level
 
-Gerard: 
+Isabel: slightly older than player, cisfemale, human/succubus
+Highest stat: Grace
+2nd highest: Charm
+Lowest stat: Strength
+Relationship prior to start: social acquaintances
+Notable traits: 
+* Haughty, bristly - comes off as arrogant
+* Actually just defensive bc she&#39;s used to being hurt
+* Excellent dancer, fencer
 
-
-Herne: 
-
-
-Isabel: 
-
-
-Jacqueline: 
-
-</tw-passagedata></tw-storydata>
+Jacqueline: slightly younger than player, trans female, human
+Highest stat: Wit
+2nd highest: Fortitude
+Lowest stat: Grace
+Relationship prior to start: tutor/student (crush)
+Notable traits: 
+* Not nobility, but part of the nouveau riche, very girly
+* Dreams of being an artisan (rebelling against her family)
+* Has had a crush on player since they tutored her</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
