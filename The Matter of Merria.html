@@ -71,7 +71,14 @@ $Youth to &quot;Girl&quot;,
 $adult to &quot;woman&quot;,
 $Adult to &quot;Woman&quot;,
 $honorific to &quot;lady&quot;,
-$Honorific to &quot;Lady&quot;)]
+$Honorific to &quot;Lady&quot;,
+$clothing to &quot;gown&quot;,
+$clothings to &quot;gowns&quot;,
+$altclothing to &quot;dress&quot;,
+$altclothing to &quot;dresses&quot;,
+$clothing_top to &quot;bodice&quot;,
+$clothing_bottom to &quot;skirt&quot;
+$clothing_under to &quot;chemise&quot;)]
 
 (if: $pronoun is &quot;he/him&quot;)[
 (set: $they to &quot;he&quot;,
@@ -91,7 +98,14 @@ $Youth to &quot;Boy&quot;,
 $adult to &quot;man&quot;,
 $Adult to &quot;Man&quot;,
 $honorific to &quot;sir&quot;,
-$Honorific to &quot;Lord&quot;)]
+$Honorific to &quot;Lord&quot;,
+$clothing to &quot;suit&quot;,
+$clothings to &quot;suits&quot;,
+$altclothing to &quot;kit&quot;,
+$altclothings to &quot;togs&quot;,
+$clothing_top to &quot;jacket&quot;,
+$clothing_bottom to &quot;trousers&quot;,
+$clothing_under to &quot;shirtsleeves&quot;)]
 
 (if: $pronoun is &quot;they/them&quot;)[
 (set: $they to &quot;they&quot;,
@@ -111,7 +125,14 @@ $Youth to &quot;Kid&quot;,
 $adult to &quot;person&quot;,
 $Adult to &quot;Person&quot;,
 $honorific to &quot;ser&quot;,
-$Honorific to &quot;Ser&quot;)]
+$Honorific to &quot;Ser&quot;,
+$clothing to &quot;outfit&quot;,
+$clothings to &quot;outfits&quot;,
+$altclothing to &quot;kit&quot;,
+$altclothings to &quot;togs&quot;,
+$clothing_top to &quot;tunic&quot;,
+$clothing_bottom to &quot;slacks&quot;,
+$clothing_under to &quot;unders&quot;)]
 
 (if: $p_age is &quot;under 18&quot;)[(set: $ref to $youth, $Ref to $Youth)]
 (if: $p_age is &quot;over 18&quot;)[(set: $ref to $adult, $Ref to $Adult)]
@@ -122,7 +143,7 @@ $fortitude to (random: 2, 10),
 $grace to (random: 2, 10), 
 $charm to (random: 2, 10), 
 $wits to (random: 2, 10))\
-(set: $stats to (array:$strength, $fortitude, $grace, $charm, $wits))\
+(set: $stats to (a:$strength, $fortitude, $grace, $charm, $wits))\
 \
 \&lt;!-- Suitors (out of 5) --&gt;\
 (set: $EmilLove to 1,
@@ -137,15 +158,15 @@ $JacquelineLove to 2)\
 (set: $worn to (array:))\
 \</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in your bedroom. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
 
-You rustle amidst the blankets, (if: $grace &gt;5)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
+You rustle amidst the blankets, (if: $grace &gt;4)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
 &quot;Good morning, $Honorific $player!&quot; They say, turning to face you while backlit from the glaring sunlight.
 
 (link-reveal: &quot;&gt; Good morning?&quot;, (action:&quot;click&quot;))[
 
-&quot;You&#39;ll be quite busy today, $honorific, I&#39;m afraid,&quot; Victoria says, bustling about the spacious room and throwing open the wardrobe before hauling out three fine-looking (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits] and hanging them on hooks to display their refined style in the sunlight.
+&quot;You&#39;ll be quite busy today, $honorific, I&#39;m afraid,&quot; Victoria says, bustling about the spacious room and throwing open the wardrobe before hauling out three fine-looking $clothings and hanging them on hooks to display their refined style in the sunlight.
 
-Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun is &quot;he/him&quot;)[suits](else:)[outfits], you realize that the servant had been saying something.
+Entranced by the $clothings, you realize that the servant had been saying something.
 
 (link-reveal: &quot;&gt; What was that?&quot;, (action:&quot;click&quot;))[
 
@@ -156,11 +177,11 @@ Entranced by the (if: $pronoun is &quot;she/her&quot;)[gowns](else-if: $pronoun 
 [[&gt; Wait, who are all these people?|Cast]]]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
 
 (if: $bag&#39;s length is 0)[Uh oh, there&#39;s nothing here.](else:)[Your bag contains the following:
-(print: $bag + (&quot;\n&quot;))]
+(print: * $bag + (&quot;\n&quot;))]
 
 You are wearing:
 
-The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit].</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" position="400,200" size="100,100">You walk up to the blue (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
+The $worn $clothing.</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" tags="" position="400,200" size="100,100">You walk up to the blue $clothing to examine it more closely.
 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels luscious. Labradorite chips glisten along the curve of the bodice, while the full skirt will brush the floor. Silver embroidery graces the long sleeves, the metallic threads shimmering in the sunlight. This dress would be perfect for an elegant $ref]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels luxurious. The navy blue slack and jacket have subtle silver pinstripes that emphasize your physique, while the paler jacquard waistcoat is studded with labradorite buttons. Everything about this suit oozes class and style. Perfect for an elegant $ref]\
@@ -173,8 +194,8 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;blue&quot;)]
-&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] $clothing (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] $clothing (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
 
 
 
@@ -197,7 +218,7 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 
 
 
-</tw-passagedata><tw-passagedata pid="7" name="Yellow Outfit" tags="" position="400,0" size="100,100">You walk up to the yellow (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
+</tw-passagedata><tw-passagedata pid="7" name="Yellow Outfit" tags="" position="400,0" size="100,100">You walk up to the yellow $clothing to examine it more closely.
 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref]\
@@ -210,9 +231,9 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;yellow&quot;)]
-&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the (text-color:&quot;blue&quot;)[[[blue|Blue Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
-</tw-passagedata><tw-passagedata pid="8" name="Red Outfit" tags="" position="400,100" size="100,100">You walk up to the red (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] to examine it more closely.
+&gt; I&#39;ll look at the (text-color:#dd3333)[[[red|Red Outfit]]] $clothing (if: (history:) contains &quot;Red Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:&quot;blue&quot;)[[[blue|Blue Outfit]]] $clothing (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
+</tw-passagedata><tw-passagedata pid="8" name="Red Outfit" tags="" position="400,100" size="100,100">You walk up to the red $clothing to examine it more closely.
 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels scintillating. Garnet chips seem to pulse along the low-cut bodice, while the skirt drapes down past the floor, although it&#39;s anything but modest with that slit halfway up the hip. It&#39;s sleeveless, with the gathered silk trailing down each shoulder like a chiton. This would be perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on her mind...]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels fiery. While not entirely red, the ebony black slacks and jacket almost absorb the sunlight, making the deep, ember-colored waistcoat stand out all the more. Black pinstripes are nearly invisible against the dark suit, but something about that and the cut just oozes sensuality. Perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on his mind...]\
@@ -225,8 +246,8 @@ The $worn (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quo
 //Hmm. Good question.//
 
 (link-reveal-goto: &quot;&gt; Yes, I&#39;ll wear this one today.&quot;, &quot;Interruption&quot;)[(set:$worn to &quot;red&quot;)]
-&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
-&gt; I&#39;ll look at the (text-color: &quot;blue&quot;)[[[blue|Blue Outfit]]] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] $clothing (if: (history:) contains &quot;Yellow Outfit&quot;)[again](else:)[next].
+&gt; I&#39;ll look at the (text-color: &quot;blue&quot;)[[[blue|Blue Outfit]]] $clothing (if: (history:) contains &quot;Blue Outfit&quot;)[again](else:)[next].
 </tw-passagedata><tw-passagedata pid="9" name="Interruption" tags="" position="500,100" size="100,100">&lt;!-- NPCs present: Lord Ferdinand Rackley --&gt;\
 \
 As you descend the curling staircase, your hand trailing on the marble banister, you consider your lot for this week.
@@ -254,45 +275,55 @@ Lord Rackley has known of your...disagreements with your mother. This is likely 
 
 Lord Rackley chuckles, &quot;Truly, a tragedy.&quot; He gestures towards the informal dining room, &quot;Shall we?&quot;
 
-[[&gt; We shall.|Breakfast]]]]</tw-passagedata><tw-passagedata pid="10" name="Lunch" tags="" position="600,600" size="100,100">&lt;!-- NPCs present: Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell --&gt;</tw-passagedata><tw-passagedata pid="11" name="Breakfast" tags="" position="600,100" size="100,100">&lt;!-- NPCs present: Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley --&gt;\
+[[&gt; We shall.|Breakfast]]]]</tw-passagedata><tw-passagedata pid="10" name="Lunch" tags="" position="0,500" size="100,100">&lt;!-- NPCs present: Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell --&gt;</tw-passagedata><tw-passagedata pid="11" name="Breakfast" tags="" position="600,100" size="100,100">&lt;!-- NPCs present: Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley --&gt;\
 \
 As soon as you enter the more informal dining room, the other two suitors rise from their chairs.
 
 **(IF YOU ARE PLAYTESTING, THIS IS THE END - PRESS BELOW TO RESTART)**
 
-Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata><tw-passagedata pid="13" name="Cast" tags="" position="200,300" size="100,100">Victoria stops mid-stride. &quot;Why, $honorific, they are your suitors. Your lady mother-&quot;
+Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata><tw-passagedata pid="13" name="Cast" tags="" position="200,300" size="100,100">(set: _emil_vis to false)\
+(set: _jacqueline_vis to false)\
+(set: _ferdinand_vis to false)\
+(set: _gerard_vis to false)\
+(set: _isabel_vis to false)\
+(set: _herne_vis to false)\
+Victoria stops mid-stride. &quot;Why, $honorific, they are your suitors. Your lady mother-&quot;
 
 (link-reveal: &quot;&gt; No, no, I know all that. Who are they //specifically?//&quot;, (action:&quot;click&quot;))[
 
-Here they seem to be on firmer ground. &quot;That depends on who strikes your fancy, $Honorific $player.\
+Here they seem to be on firmer ground. &quot;That depends on who strikes your fancy, $Honorific $player.
 
 At breakfast, you&#39;ll see
-* [Ser Emil Danforth]&lt;emil|,
-* [Miss Jacqueline Collins]&lt;jaqueline|,
-* and [Lord Ferdinand Rackley]&lt;ferdinand|.\
+* [(link-rerun: &quot;Ser Emil Danforth&quot;)[(if:_emil_vis is false) [(show:?emil_answer)(hide:?question)(set:_emil_vis to true)](else:) [(show:?question)(hide:?emil_answer)(set:_emil_vis to false)]]],
+* [(link-rerun: &quot;Miss Jacqueline Collins&quot;)[(if:_jacqueline_vis is false) [(show: ?jacqueline_answer)(hide: ?question)(set:_jacqueline_vis to true)](else:) [(show:?question)(hide:?jacqueline_answer)(set:_jacqueline_vis to false)]]],
+* and [(link-rerun: &quot;Lord Ferdinand Rackley&quot;)[(if: _ferdinand_vis is false)[(show: ?ferdinand_answer)(hide: ?question)(set: _ferdinand_vis to true)](else:) [(show: ?question)(hide: ?ferdinand_answer)(set:_ferdinand_vis to false)]]].\
 
 And at lunch you&#39;ll be entertaining
-* [Lord Gerard Henbrooke]&lt;gerard|,
-* [Lady Isabel Dominguez]&lt;isabel|,
-* and [Ser Herne Avrilfell]&lt;herne|.\
+* [(link-rerun: &quot;Sir Gerard Henbrooke&quot;)[(if: _gerard_vis is false) [(show: ?gerard_answer)(hide:?question)(set:_gerard_vis to true)](else:)[(show:?question)(hide:?gerard_answer)(set:_gerard_vis to false)]]],
+* [(link-rerun:&quot;Lady Isabel Dominguez&quot;)[(if: _isabel_vis is false) [(show:?isabel_answer)(hide:?question)(set:_isabel_vis to true)](else:)[(show:?question)(hide:?isabel_answer)(set:_isabel_vis to false)]]],
+* and [(link-rerun: &quot;Ser Herne Avrilfell&quot;)[(if: _herne_vis is false)[(show: ?herne_answer)(hide:?question)(set:_herne_vis to true)](else:)[(show:?question)(hide:?herne_answer)(set:_herne_vis to false)]]].\
 
-Which one were you curious about?
+|question&gt;[Which one were you curious about?]\
+\\
+|emil_answer)[Ser Emil is a human, the same age as you, $honorific, and a former student at the same school you went to. Their skills in riding, fencing, and archery are simply unmatched. I //believe// they took home a trophy or two, although I&#39;m told they are rather...ill-mannered. It certainly isn&#39;t a matter of breeding, the Danforths are simply known for being rather...*physical.*]\
+\\
+|jacqueline_answer)[Miss Jacqueline is ]\
+\\
+|ferdinand_answer)[Lord Ferdinand is ]\
+\\
+|gerard_answer)[Sir Gerard is ]\
+\\
+|isabel_answer)[Lady Isabel is ]\
+\\
+|herne_answer)[Ser Herne is ]
 
-[]&lt;space|
-(click: ?emil)[(replace:?space)[Ser Emil is a human, the same age as you, $honorific, and a former student at the same school you went to. Their skills in riding, fencing, and archery are simply unmatched. I //believe// they took home a trophy or two, although I&#39;m told they are rather...ill-mannered. It certainly isn&#39;t a matter of breeding, the Danforths are simply known for being rather...//physical.//]]\
-(click: ?jaqueline)[(replace:?space)[Miss Jacqueline is ]]\
-(click: ?ferdinand)[(replace:?space)[Lord Ferdinand is ]]\
-(click: ?gerard)[(replace:?space)[Lord Gerard is ]]\
-(click: ?isabel)[(replace:?space)[Lady Isabel is ]]\
-(click: ?herne)[(replace:?space)[Ser Herne is ]
-
-(more:)[Now, was that all? Shall we get back to choosing your (if: $pronoun is &quot;she/her&quot;)[gown](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit] for today?
+(more:)[Now, was that all? Shall we get back to choosing your $clothing for today?
 (set: _stats to $stats)
 Take a look at the (if: $strength or $fortitude is &gt;=8)[[[yellow|Yellow Outfit]]]\
-(else-if: $grace is &gt;=8)[(either: [[blue|Blue Outfit]], [[red|Red Outfit]])]\
+(else-if: $grace is &gt;=8)[(either: [[[blue|Blue Outfit]]], [[[red|Red Outfit]]])]\
 (else-if: $wits is &gt;=8)[[[blue|Blue Outfit]]]\
 (else-if: $charm is &gt;=8)[[[red|Red Outfit]]]\
-(else:)[(either: [[red|Red Outfit]], [[blue|Blue Outfit]], [[yellow|Yellow Outfit]])] (if: $pronoun is &quot;she/her&quot;)[dress](else-if: $pronoun is &quot;he/him&quot;)[suit](else:)[outfit], at least.(if: (all-pass: where _stats &gt;=8))[ I think it suits you.&quot;](else:)[]]]]
+(else:)[(either: [[[red|Red Outfit]]], [[[blue|Blue Outfit]]], [[[yellow|Yellow Outfit]]])] $clothing, at least.(if: (all-pass: where _stats &gt;=8))[ I think it suits you.&quot;](else:)[]]]
 
 &lt;!--
 Emil: same age as player, afab enby, human
@@ -355,9 +386,30 @@ Notable traits:
 * Dreams of being an artisan (rebelling against her family)
 * Has had a crush on player since they tutored her
 --&gt;</tw-passagedata><tw-passagedata pid="14" name="DEV NOTES" tags="" position="0,300" size="100,100">&lt;!-- Git Messages
-git commit -a -m &quot;Message&quot;
+git commit
+git tag [version number] 
 git push
+git push origin tag [version number]
 --&gt;
+
+To Do:
+
+Thresholds (global variable/constant) for stat checks
+* lower bound: 4 or 5
+* upper bound: 7 or 8
+Reason: easier than referring to a specific number repeatedly, can be adjusted once for playtesting purposes rather than in dozens or even hundreds of locations
+
+DONE - Rework outfit reference into [[Stopover]] to follow pronouns
+
+
+Cast: 
+
+Victoria: slightly older than player, afab enby, human
+Highest stat: 
+2nd highest: 
+Lowest stat: 
+Relationship: master/maid
+NOT ROMANCEABLE
 
 Emil: same age as player, afab enby, human
 Highest stat: Grace 
