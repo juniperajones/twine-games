@@ -137,26 +137,88 @@ $clothing_under to &quot;unders&quot;)]
 (if: $p_age is &quot;under 18&quot;)[(set: $ref to $youth, $Ref to $Youth)]
 (if: $p_age is &quot;over 18&quot;)[(set: $ref to $adult, $Ref to $Adult)]
 
-(goto:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">&lt;!-- Stats (out of 10) --&gt;\
-(set: $strength to (random: 2, 10),
-$fortitude to (random: 2, 10), 
-$grace to (random: 2, 10), 
-$charm to (random: 2, 10), 
-$wits to (random: 2, 10))\
-(set: $stats to (a:$strength, $fortitude, $grace, $charm, $wits))\
-\
-\&lt;!-- Suitors (out of 5) --&gt;\
+(redirect:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">&lt;!-- Stats (out of 10) --&gt;
+(set: $stats to (dm: &quot;Strength&quot;, (random: 2, 10))+
+(dm: &quot;Fortitude&quot;, (random: 2, 10))+
+(dm: &quot;Grace&quot;, (random: 2, 10))+
+(dm: &quot;Charm&quot;, (random: 2, 10))+
+(dm: &quot;Wits&quot;, (random: 2, 10)))
+
+&lt;!--Stat Check--&gt;
+(if: $stats&#39;s &quot;Strength&quot; &lt;= 4)[(set: $strength to &quot;low&quot;)]
+(else-if: $stats&#39;s &quot;Strength&quot; &gt;=8)[(set: $strength to &quot;high&quot;)]
+(else:)[(set: $strength to &quot;mid&quot;)]
+(if: $stats&#39;s &quot;Fortitude&quot; &lt;= 4)[(set: $fortitude to &quot;low&quot;)]
+(else-if: $stats&#39;s &quot;Fortitude&quot; &gt;=8)[(set: $fortitude to &quot;high&quot;)]
+(else:)[(set: $fortitude to &quot;mid&quot;)]
+(if: $stats&#39;s &quot;Grace&quot; &lt;= 4)[(set: $grace to &quot;low&quot;)]
+(else-if: $stats&#39;s &quot;Grace&quot; &gt;=8)[(set: $grace to &quot;high&quot;)]
+(else:)[(set: $grace to &quot;mid&quot;)]
+(if: $stats&#39;s &quot;Charm&quot; &lt;= 4)[(set: $charm to &quot;low&quot;)]
+(else-if: $stats&#39;s &quot;Charm&quot; &gt;=8)[(set: $charm to &quot;high&quot;)]
+(else:)[(set: $charm to &quot;mid&quot;)]
+(if: $stats&#39;s &quot;Wits&quot; &lt;= 4)[(set: $wits to &quot;low&quot;)]
+(else-if: $stats&#39;s &quot;Wits&quot; &gt;=8)[(set: $wits to &quot;high&quot;)]
+(else:)[(set: $wits to &quot;mid&quot;)]
+
+&lt;!-- Suitors&#39; Base Affection (out of 10) --&gt;
 (set: $EmilLove to 1,
 $FerdinandLove to 2,
 $GerardLove to 0,
 $HerneLove to 1,
 $IsabelLove to 0,
-$JacquelineLove to 2)\
-\
-\&lt;!-- Inventory --&gt;\
-(set: $bag to (array:))\
-(set: $worn to (array:))\
-\</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in your bedroom. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+$JacquelineLove to 2)
+
+&lt;!-- Suitors&#39; Modified Affection --&gt;
+(if: $strength is &quot;low&quot;)
+[(set: $EmilLove to it + 1, $GerardLove to it - 1)]
+(else-if: $strength is &quot;high&quot;)
+[(set: $GerardLove to it + 1, $IsabelLove to it + 1)]
+
+(if: $fortitude is &quot;low&quot;)
+[(set: $EmilLove to it + 1, $JacquelineLove to it + 1)]
+(else-if: $fortitude is &quot;high&quot;)
+[(set: $GerardLove to it + 1, $FerdinandLove to it + 1)]
+
+(if: $grace is &quot;low&quot;)
+[(set: $EmilLove to it + 1, $GerardLove to it - 1)]
+(else-if: $grace is &quot;high&quot;)
+[(set: $IsabelLove to it + 1, $JacquelineLove to it + 2)]
+
+(if: $charm is &quot;low&quot;)
+[(set: $EmilLove to it - 1, $IsabelLove to it - 1)]
+(else-if: $charm is &quot;high&quot;)
+[(set: $FerdinandLove to it + 1, $GerardLove to it - 1)]
+
+(if: $wits is &quot;low&quot;)
+[(set: $HerneLove to it - 2, $IsabelLove to it - 1)]
+(else-if: $wits is &quot;high&quot;)
+[(set: $HerneLove to it + 1, $FerdinandLove to it + 1)]
+
+
+&lt;!-- Based on this, we can deduce that:
+Emil likes weak, sickly, clumsy people that are charming.
+(They want to &quot;rescue&quot; their partner.)
+
+Ferdinand likes healthy, charming, intelligent people.
+(He likes those who can keep up with him.)
+
+Gerard likes strong, healthy people who aren&#39;t clumsy or too charming.
+(He likes those who can match him step for step, but aren&#39;t &quot;fake&quot;.)
+
+Herne likes smart people, and strongly dislikes fools.
+(They have little patience for fools.)
+
+Isabel likes strong, graceful people who aren&#39;t boors or fools.
+(She wants to be swept off her feet by another dancer or bested by a stronger fencer.)
+
+Jacqueline likes sickly, very graceful people.
+(She wants to care for her partner, and admires that which she lacks (Grace).)
+--&gt;
+
+&lt;!-- Inventory --&gt;
+(set: $bag to (array:))
+(set: $worn to (array:))</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in your bedroom. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
 
 You rustle amidst the blankets, (if: $grace &gt;4)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
@@ -306,30 +368,29 @@ And at lunch you&#39;ll be entertaining
 |question&gt;[Which one were you curious about?]\
 \\
 |emil_answer)[Ser Emil is a human, the same age as you, $honorific, and a former student at the same school you went to. Their skills in riding, fencing, and archery are simply unmatched. I //believe// they took home a trophy or two, although I&#39;m told they are rather...ill-mannered. It certainly isn&#39;t a matter of breeding, the Danforths are simply known for being rather...*physical.*]\
-\\
+\
 |jacqueline_answer)[Miss Jacqueline is ]\
-\\
+\
 |ferdinand_answer)[Lord Ferdinand is ]\
-\\
+\
 |gerard_answer)[Sir Gerard is ]\
-\\
+\
 |isabel_answer)[Lady Isabel is ]\
-\\
+\
 |herne_answer)[Ser Herne is ]
 
 (more:)[Now, was that all? Shall we get back to choosing your $clothing for today?
-(set: _stats to $stats)
-Take a look at the (if: $strength or $fortitude is &gt;=8)[[[yellow|Yellow Outfit]]]\
-(else-if: $grace is &gt;=8)[(either: [[[blue|Blue Outfit]]], [[[red|Red Outfit]]])]\
-(else-if: $wits is &gt;=8)[[[blue|Blue Outfit]]]\
-(else-if: $charm is &gt;=8)[[[red|Red Outfit]]]\
+Take a look at the (if: $strength or $fortitude is &quot;high&quot;)[[[yellow|Yellow Outfit]]]\
+(else-if: $grace is &quot;high&quot;)[(either: [[[blue|Blue Outfit]]], [[[red|Red Outfit]]])]\
+(else-if: $wits is &quot;high&quot;)[[[blue|Blue Outfit]]]\
+(else-if: $charm is &quot;high&quot;)[[[red|Red Outfit]]]\
 (else:)[(either: [[[red|Red Outfit]]], [[[blue|Blue Outfit]]], [[[yellow|Yellow Outfit]]])] $clothing, at least.(if: (all-pass: where _stats &gt;=8))[ I think it suits you.&quot;](else:)[]]]
 
 &lt;!--
 Emil: same age as player, afab enby, human
 Highest stat: Grace 
-2nd highest: Fortitude
-Lowest stat: Charm
+2nd highest: Strength
+Lowest stat: Wits
 Relationship prior to start: school acquaintances
 Notable traits: 
 * Excels at anything physical, especially sports
@@ -338,8 +399,8 @@ Notable traits:
 
 Ferdinand: slightly older than player, cismale, elfkin/incubus
 Highest stat: Charm
-2nd highest: Grace
-Lowest stat: Wit
+2nd highest: Wits
+Lowest stat: Strength
 Relationship prior to start: friendly rivals
 Notable traits: 
 * Mischevious, playful, teasing
@@ -357,7 +418,7 @@ Notable traits:
 * Surprisingly warm once his walls come down (cuddly)
 
 Herne: older than player, amab enby, human/fey-touched (satyr)
-Highest stat: Wit
+Highest stat: Wits
 2nd Highest: Charm
 Lowest stat: Fortitude
 Relationship prior to start: student/tutor (friendly)
@@ -377,7 +438,7 @@ Notable traits:
 * Excellent dancer, fencer
 
 Jacqueline: slightly younger than player, trans female, human
-Highest stat: Wit
+Highest stat: Wits
 2nd highest: Fortitude
 Lowest stat: Grace
 Relationship prior to start: tutor/student (crush)
