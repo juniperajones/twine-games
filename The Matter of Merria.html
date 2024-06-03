@@ -387,7 +387,6 @@ Take a look at the (if: $strength or $fortitude is &quot;high&quot;)[[[yellow|Ye
 git commit
 git tag [version number] 
 git push
-git push origin tag [version number]
 --&gt;
 
 To Do:
@@ -407,23 +406,22 @@ DONE - Thresholds (global variable/constant) for stat checks
 * upper bound: 7 or 8
 Reason: easier than referring to a specific number repeatedly, can be adjusted once for playtesting purposes rather than in dozens or even hundreds of locations
 
-DONE - Rework outfit reference into [[Stopover]] to follow pronouns</tw-passagedata><tw-passagedata pid="15" name="Header" tags="header" position="0,400" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="Scratch" tags="" position="200,500" size="100,100">(set:$cast to (dm:
-$emil, (dm:
-$emil_strength, 8,
-$emil_fortitude, 9,
-$emil_grace, 9,
-$emil_charm, 6,
-$emil_wits, 4,
-$emil_love, 1,
-$emil_low_stat1, &quot;strength&quot;,
-$emil_low_stat2, &quot;fortitude&quot;,
-$emil_low_stat3, &quot;grace&quot;
-)
+DONE - Rework outfit reference into [[Stopover]] to follow pronouns</tw-passagedata><tw-passagedata pid="15" name="Header" tags="header" position="0,400" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="Scratch" tags="" position="200,500" size="100,100">(set:$cast to (dm:))
+(set:$cast to it + (dm: &quot;emil&quot;, (dm:
+&quot;strength&quot;, 8,
+&quot;fortitude&quot;, 9,
+&quot;grace&quot;, 9,
+&quot;charm&quot;, 6,
+&quot;wits&quot;, 4,
+&quot;love&quot;, 1,
+&quot;stat1&quot;, &quot;strength&quot;,
+&quot;stat2&quot;, &quot;fortitude&quot;,
+&quot;stat3&quot;, &quot;grace&quot;,
+&quot;stat4&quot;, &quot;charm&quot;
+)))
 
-
-
-
-))</tw-passagedata></tw-storydata>
+(if:$cast&#39;s emil&#39;s stat1 is &quot;strength&quot;)[(print:&quot;foo&quot;)]
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
