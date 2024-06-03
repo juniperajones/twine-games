@@ -44,11 +44,11 @@ And how old are you?
 
 Your name is $player Allbright, a (if: $p_age is &quot;under 18&quot;)[young ](else:)[]noble poised to take Merria by storm...if only your mother would get off your back about this marriage business. She&#39;s arranged for six would-be suitors to visit you for the next week, and by the end of that week, you&#39;ll have to choose one to be your partner for life... or //she&#39;ll// choose for you!
 You happen to be \
-(if: $strength is &lt;4)[quite weak](else-if: $strength &gt;8)[quite strong](else:)[of average strength], \
-(if: $fortitude is &lt;4)[rather sickly](else-if: $fortitude &gt;8)[in top form](else:)[of average fortitude], \
-(if: $grace is &lt;4)[a mite clumsy](else-if: $grace &gt;8)[effortlessly graceful](else:)[of average grace], \
-(if: $charm is &lt;4)[tactless](else-if: $charm &gt;8)[positively captivating](else:)[of average charm], and \
-(if: $wits is &lt;4)[quite dense](else-if: $wits &gt;8)[quite the erudite](else:)[of average intelligence].
+(if: $strength is &quot;low&quot;)[quite weak](else-if: $strength is &quot;high&quot;)[quite strong](else:)[of average strength], \
+(if: $fortitude is &quot;low&quot;)[rather sickly](else-if: $fortitude is &quot;high&quot;)[in top form](else:)[of average fortitude], \
+(if: $grace is &quot;low&quot;)[a mite clumsy](else-if: $grace is &quot;high&quot;)[effortlessly graceful](else:)[of average grace], \
+(if: $charm is &quot;low&quot;)[tactless](else-if: $charm is &quot;high&quot;)[positively captivating](else:)[of average charm], and \
+(if: $wits is &quot;low&quot;)[quite dense](else-if: $wits is &quot;high&quot;)[quite the erudite](else:)[of average intelligence].
 
 Does that sound right?
 
@@ -137,7 +137,7 @@ $clothing_under to &quot;unders&quot;)]
 (if: $p_age is &quot;under 18&quot;)[(set: $ref to $youth, $Ref to $Youth)]
 (if: $p_age is &quot;over 18&quot;)[(set: $ref to $adult, $Ref to $Adult)]
 
-(redirect:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">&lt;!-- Stats (out of 10) --&gt;
+(redirect:&quot;Good Morning&quot;)</tw-passagedata><tw-passagedata pid="3" name="Variables" tags="startup" position="0,100" size="100,100">{&lt;!-- Stats (out of 10) --&gt;
 (set: $stats to (dm: &quot;Strength&quot;, (random: 2, 10))+
 (dm: &quot;Fortitude&quot;, (random: 2, 10))+
 (dm: &quot;Grace&quot;, (random: 2, 10))+
@@ -218,9 +218,9 @@ Jacqueline likes sickly, very graceful people.
 
 &lt;!-- Inventory --&gt;
 (set: $bag to (array:))
-(set: $worn to (array:))</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in your bedroom. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
+(set: $worn to (array:))}</tw-passagedata><tw-passagedata pid="4" name="Good Morning" tags="" position="200,100" size="100,100">You awaken in your bedroom. You&#39;re laying in a big canopied bed, with smooth, cool sheets and a heavy blanket. The canopy is drawn close around the sides of the bed, shutting out most of the daylight that must be shining against the drapes.
 
-You rustle amidst the blankets, (if: $grace &gt;4)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &gt;=8)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
+You rustle amidst the blankets, (if: $grace is &quot;low&quot;)[and slip out of the bed unnoticed by the servant sleeping in the corner. (if: $grace &quot;high&quot;)[You&#39;re able to slip out the door before bumping into a uniformed guard. They gently steer you back inside the bedroom, where the servant now ](else:)[You&#39;re able to make it to the door before the servant awakens with a start and ]](else:)[and start to pull the drapes aside, when a nearby servant startles awake and ]stands to pull the curtains open, flooding the room with bright light.
 
 &quot;Good morning, $Honorific $player!&quot; They say, turning to face you while backlit from the glaring sunlight.
 
@@ -234,7 +234,7 @@ Entranced by the $clothings, you realize that the servant had been saying someth
 
 &quot;I //said,// you&#39;ll be having breakfast with Ser Emil Danforth, Miss Jacqueline Collins, and Lord Ferdinand Rackley, lunch with Lord Gerard Henbrooke, Lady Isabel Dominguez, and Ser Herne Avrilfell. All of your guests will be staying for dinner, of course, and should be around the manor, should you wish to speak to them. Imagine meeting with all of your matches in one day! This should be quite instructive.&quot; They finish laying out your clothes for the day and gesture to them.
 
-&quot;Which would you like, $honorific? The [[blue|Blue Outfit]] is quite fetching, but the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] is more energetic. The (text-color:#dd3333)[[[red|Red Outfit]]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;
+&quot;Which would you like, $honorific? The (text-color:blue)[[blue|Blue Outfit]] is quite fetching, but the (text-color:#aa6600)[[[yellow|Yellow Outfit]]] is more energetic. The (text-color:#dd3333)[[[red|Red Outfit]]], of course, is very alluring. You may wish to examine them further before making your final choice.&quot;
 
 [[&gt; Wait, who are all these people?|Cast]]]]</tw-passagedata><tw-passagedata pid="5" name="Bag" tags="" position="0,200" size="100,100">Your bag contains:
 
@@ -248,7 +248,7 @@ The $worn $clothing.</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels luscious. Labradorite chips glisten along the curve of the bodice, while the full skirt will brush the floor. Silver embroidery graces the long sleeves, the metallic threads shimmering in the sunlight. This dress would be perfect for an elegant $ref]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels luxurious. The navy blue slack and jacket have subtle silver pinstripes that emphasize your physique, while the paler jacquard waistcoat is studded with labradorite buttons. Everything about this suit oozes class and style. Perfect for an elegant $ref]\
 (else:)[The servant was right, this outfit certainly feels lovely. The pale blue tunic hangs below the knees, with a slit up to the hip. A silver chain belt will help the otherwise shapeless tunic show off your figure, while deep cobalt slacks with wide legs round out the outfit. Each piece is brushed with silver embroidery, and the belt is held fast with a labradorite brooch. Seems like the perfect thing for an elegant $ref]\
-(if: $wits &gt;=8 or $grace &gt;=8)[ like myself]\
+(if: $wits or $grace is &quot;high&quot;)[ like myself]\
 (else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
@@ -285,7 +285,7 @@ The $worn $clothing.</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels lively. Topaz chips shine along the bodice, while the skirt comes down to mid-calf for ease of movement. Even the sleeves are loose and seem to flutter at your very breath, shining like butterfly wings. This would be perfect for a healthy $ref]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels lively. While not //strictly// yellow, the brown slacks and jacket almost glow like honey in the sun. The waistcoat is, of course, yellow jacquard with topaz buttons. You can tell from the cut that this suit will be easy to move in. Perfect for a healthy $ref]\
 (else:)[The servant was right, this outfit certainly feels lively. The ochre tunic ends at the knees, with a slit up to the waist for ease of movement. A woven brown belt will help the otherwise shapeless tunic show off your figure, while darker brown slacks with wide legs round out the outfit. Each piece is graced with gold embroidery, and the belt can be pinned shut with a topaz brooch. Seems like the perfect thing for a healthy $ref]\
-(if: $strength &gt;=8 or $fortitude &gt;=8)[ like myself]\
+(if: $strength or $fortitude is &quot;high&quot;)[ like myself]\
 (else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
@@ -300,7 +300,7 @@ The $worn $clothing.</tw-passagedata><tw-passagedata pid="6" name="Blue Outfit" 
 (if: $pronoun is &quot;she/her&quot;)[The servant was right, this dress certainly feels scintillating. Garnet chips seem to pulse along the low-cut bodice, while the skirt drapes down past the floor, although it&#39;s anything but modest with that slit halfway up the hip. It&#39;s sleeveless, with the gathered silk trailing down each shoulder like a chiton. This would be perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on her mind...]\
 (else-if: $pronoun is &quot;he/him&quot;)[The servant was right, this suit certainly feels fiery. While not entirely red, the ebony black slacks and jacket almost absorb the sunlight, making the deep, ember-colored waistcoat stand out all the more. Black pinstripes are nearly invisible against the dark suit, but something about that and the cut just oozes sensuality. Perfect for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on his mind...]\
 (else:)[The servant was right, this outfit certainly feels scandalous. The garnet tunic ends just past the hips, with slits up to the sleeves held fast with black cord. A garnet studded black belt will help accentuate your figure, while darker than black slacks with wide legs round out the outfit. Each piece is graced with traces of ebony embroidery. Seems like the perfect thing for a $ref with (if: $p_age is &quot;under 18&quot;)[romance](else:)[passion] on their mind...]\
-(if: $charm &gt;=8 or $grace &gt;=8)[ like myself]\
+(if: $charm or $grace is &quot;high&quot;)[ like myself]\
 (else:)[].
 
 &quot;Will it serve, $Honorific $player?&quot;
@@ -320,18 +320,18 @@ On the other hand, you&#39;ve got free run of the house and its grounds, along w
 
 Well, Victoria, that&#39;s who. They helped you dress, even though you&#39;re perfectly capable, and made sure your hair was just so to make the best impression on... Blast it, what were their names again?\
  
-(if: $worn is &quot;red&quot;)[(set: $FerdinandLove to $FerdinandLove + 1)]\
+(if: $worn is &quot;red&quot;)[(set: $FerdinandLove to it + 1)]\
 \
 &quot;You seem lost in thought, $Honorific Allbright,&quot; resounds a voice like mead - sweet, intoxicating, and //far// too decadent for so early in the morning.
 
-(if: $wits is &gt;7)[
+(if: $wits is &quot;high&quot;)[
 You roll your eyes. Ferdinand Rackley certainly has a flair for the dramatic.]
 (link-reveal: &quot;&gt; Why Lord Rackley, I hardly spied you there. What are you doing, lurking behind the statuary like that?&quot;, (action:&quot;click&quot;))[
 
 The Lord of the Rackley estates steps out from behind a marble statue of a barely-clothed dancer.
 &quot;Why, only waiting for you, my dear $ref. I understand your lady mother has roped you into //quite// the production.&quot;
 \
-(if: $charm is &gt;7)[
+(if: $charm is &quot;high&quot;)[
 Lord Rackley has known of your...disagreements with your mother. This is likely a play to get on your good side.]
 (link-reveal: &quot;&gt; Yes, it //is// quite a lot to go through for such a young $ref.&quot;, (action:&quot;click&quot;))[
 
@@ -343,110 +343,47 @@ As soon as you enter the more informal dining room, the other two suitors rise f
 
 **(IF YOU ARE PLAYTESTING, THIS IS THE END - PRESS BELOW TO RESTART)**
 
-Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata><tw-passagedata pid="13" name="Cast" tags="" position="200,300" size="100,100">(set: _emil_vis to false)\
-(set: _jacqueline_vis to false)\
-(set: _ferdinand_vis to false)\
-(set: _gerard_vis to false)\
-(set: _isabel_vis to false)\
-(set: _herne_vis to false)\
-Victoria stops mid-stride. &quot;Why, $honorific, they are your suitors. Your lady mother-&quot;
+Restart?(click: &quot;Restart?&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="12" name="Restart" tags="" position="100,100" size="100,100">(restart:)</tw-passagedata><tw-passagedata pid="13" name="Cast" tags="" position="200,300" size="100,100">Victoria stops mid-stride. &quot;Why, $honorific, they are your suitors. Your lady mother-&quot;
 
 (link-reveal: &quot;&gt; No, no, I know all that. Who are they //specifically?//&quot;, (action:&quot;click&quot;))[
 
 Here they seem to be on firmer ground. &quot;That depends on who strikes your fancy, $Honorific $player.
 
 At breakfast, you&#39;ll see
-* [(link-rerun: &quot;Ser Emil Danforth&quot;)[(if:_emil_vis is false) [(show:?emil_answer)(hide:?question)(set:_emil_vis to true)](else:) [(show:?question)(hide:?emil_answer)(set:_emil_vis to false)]]],
-* [(link-rerun: &quot;Miss Jacqueline Collins&quot;)[(if:_jacqueline_vis is false) [(show: ?jacqueline_answer)(hide: ?question)(set:_jacqueline_vis to true)](else:) [(show:?question)(hide:?jacqueline_answer)(set:_jacqueline_vis to false)]]],
-* and [(link-rerun: &quot;Lord Ferdinand Rackley&quot;)[(if: _ferdinand_vis is false)[(show: ?ferdinand_answer)(hide: ?question)(set: _ferdinand_vis to true)](else:) [(show: ?question)(hide: ?ferdinand_answer)(set:_ferdinand_vis to false)]]].\
+* [Ser Emil Danforth]&lt;emil|,
+* [Miss Jacqueline Collins]&lt;jacqueline|,
+* and [Lord Ferdinand Rackley]&lt;ferdinand|.\
 
 And at lunch you&#39;ll be entertaining
-* [(link-rerun: &quot;Sir Gerard Henbrooke&quot;)[(if: _gerard_vis is false) [(show: ?gerard_answer)(hide:?question)(set:_gerard_vis to true)](else:)[(show:?question)(hide:?gerard_answer)(set:_gerard_vis to false)]]],
-* [(link-rerun:&quot;Lady Isabel Dominguez&quot;)[(if: _isabel_vis is false) [(show:?isabel_answer)(hide:?question)(set:_isabel_vis to true)](else:)[(show:?question)(hide:?isabel_answer)(set:_isabel_vis to false)]]],
-* and [(link-rerun: &quot;Ser Herne Avrilfell&quot;)[(if: _herne_vis is false)[(show: ?herne_answer)(hide:?question)(set:_herne_vis to true)](else:)[(show:?question)(hide:?herne_answer)(set:_herne_vis to false)]]].\
+* [Sir Gerard Henbrooke]&lt;gerard|,
+* [Lady Isabel Dominguez]&lt;isabel|,
+* and [Ser Herne Avrilfell]&lt;herne|.\
 
-|question&gt;[Which one were you curious about?]\
-\\
-|emil_answer)[Ser Emil is a human, the same age as you, $honorific, and a former student at the same school you went to. Their skills in riding, fencing, and archery are simply unmatched. I //believe// they took home a trophy or two, although I&#39;m told they are rather...ill-mannered. It certainly isn&#39;t a matter of breeding, the Danforths are simply known for being rather...*physical.*]\
-\
-|jacqueline_answer)[Miss Jacqueline is ]\
-\
-|ferdinand_answer)[Lord Ferdinand is ]\
-\
-|gerard_answer)[Sir Gerard is ]\
-\
-|isabel_answer)[Lady Isabel is ]\
-\
-|herne_answer)[Ser Herne is ]
+{|question&gt;[Which one were you curious about?]
+(click-rerun:?emil)[(replace:?question)
+[Ser Emil is a human, the same age as you, $honorific, and a former student at the same school you went to. Their skills in riding, fencing, and archery are simply unmatched. I //believe// they took home a trophy or two, although I&#39;m told they are rather...thick-headed. It certainly isn&#39;t a matter of breeding, the Danforths are simply known for being rather...*physical.*]]
 
-(more:)[Now, was that all? Shall we get back to choosing your $clothing for today?
+(click-rerun:?jacqueline)[(replace:?question)
+[Miss Jacqueline is that human girl you tutored last year, my $honorific. I believe she&#39;s only a year or two younger than yourself. She&#39;s no noble, and so wouldn&#39;t ordinarily be considered a potential match by your lady mother, but her family is quite wealthy. How did the phrase go... *nouveau riche?* In any case, such a match would be beneficial to the Allbright household. I&#39;m told she&#39;s a bit rebellious, preferring to haunt the halls of a hospital to the grounds of the Collins&#39; estate.]]\
+
+(click-rerun:?ferdinand)[(replace:?question)
+[Lord Ferdinand is well-known to be a rake and a rogue. Heavens know why your lady mother allowed him to be included in this retinue, but here he is, nonetheless. Must be that incubus blood in him, that makes him so magnetic, although his elfkin good looks don&#39;t hurt his chances. He&#39;s //quite// the charmer, although if memory serves, you and he preferred to trade barbs rather than tender words. Perhaps your lady mother hopes that can be amended?]]\
+
+(click-rerun:?gerard)[(replace:?question)
+[Sir Gerard is a knight in the royal guard, and a noble to boot, not to mention your riding and swordwork instructor from last year. I&#39;m //sure// he&#39;ll want to see how you&#39;ve improved, so I&#39;ve readied your riding kit for later. He&#39;s a huro of few words, and that seems to intimidate everyone around him. Well, that and his sheer //size//; I&#39;ve never seen a more powerful-looking lord. He&#39;s not one for social niceties, so I&#39;d keep the idle chatter down to a minimum when you speak with him. Direct, and to the point, that&#39;s the hurokin way.]]\
+
+(click-rerun:?isabel)[(replace:?question)
+[Lady Isabel is an elfkin who&#39;s been running in the same social circles as you for many years now. She&#39;s older, of course, but not by much, or at least not enough for your lady mother to discount her. She&#39;s a dancer, a fencer, and one of the most captivating people you&#39;re likely to meet, although I understand she&#39;s a bit icy to most before they get to know her. I suspect she&#39;s one of those that would love to be swept off her feet, but you&#39;ll want to be on your best behavior around her.]]\
+
+(click-rerun:?herne)[(replace:?question)
+[Ser Herne is that lovely fey-touched person, a satyr, I believe? The one who tutored you when you were younger in all sorts of subjects. They&#39;re no noble, but have a high enough status with other nobility that it shouldn&#39;t be much of an issue. Regardless, (if: $wits is &quot;high&quot;)[you two should get along quite well. Do remember to rest that head of yours from time to time, my dear $honorific.](else-if:$wits is &quot;low&quot;)[you may have quite a hard road to hoe with them. They don&#39;t show much interest in anyone not on their level.](else:)[you might steer the topic toward more academic subjects, if you want to attract their attention.]]]}
+
+Now, was that all? Shall we get back to choosing your $clothing for today?
 Take a look at the (if: $strength or $fortitude is &quot;high&quot;)[[[yellow|Yellow Outfit]]]\
 (else-if: $grace is &quot;high&quot;)[(either: [[[blue|Blue Outfit]]], [[[red|Red Outfit]]])]\
 (else-if: $wits is &quot;high&quot;)[[[blue|Blue Outfit]]]\
 (else-if: $charm is &quot;high&quot;)[[[red|Red Outfit]]]\
-(else:)[(either: [[[red|Red Outfit]]], [[[blue|Blue Outfit]]], [[[yellow|Yellow Outfit]]])] $clothing, at least.(if: (all-pass: where _stats &gt;=8))[ I think it suits you.&quot;](else:)[]]]
-
-&lt;!--
-Emil: same age as player, afab enby, human
-Highest stat: Grace 
-2nd highest: Strength
-Lowest stat: Wits
-Relationship prior to start: school acquaintances
-Notable traits: 
-* Excels at anything physical, especially sports
-* Less tact than poster putty
-* Kind-hearted puppy
-
-Ferdinand: slightly older than player, cismale, elfkin/incubus
-Highest stat: Charm
-2nd highest: Wits
-Lowest stat: Strength
-Relationship prior to start: friendly rivals
-Notable traits: 
-* Mischevious, playful, teasing
-* Doesn&#39;t care for other&#39;s feelings
-* Rakish, rogue, but would be *your* rakish rogue
-
-Gerard: older than player, cismale, hurokin?
-Highest stat: Strength
-2nd highest: Fortitude
-Lowest stat: Charm
-Relationship prior to start: student/tutor (chilly)
-Notable traits: 
-* Tutored player in swordplay, riding, other physical subjects
-* Expects player to be afraid of him, even now
-* Surprisingly warm once his walls come down (cuddly)
-
-Herne: older than player, amab enby, human/fey-touched (satyr)
-Highest stat: Wits
-2nd Highest: Charm
-Lowest stat: Fortitude
-Relationship prior to start: student/tutor (friendly)
-Notable traits: 
-* Uninterested in small talk, loves deep, philosophical conversations
-* Slow, methodical, meticulous in everything they do (even sex)
-* Librarian-type, bookish, unlikely to like player unless they can speak on the same level
-
-Isabel: slightly older than player, cisfemale, human/succubus
-Highest stat: Grace
-2nd highest: Charm
-Lowest stat: Strength
-Relationship prior to start: social acquaintances
-Notable traits: 
-* Haughty, bristly - comes off as arrogant
-* Actually just defensive bc she&#39;s used to being hurt
-* Excellent dancer, fencer
-
-Jacqueline: slightly younger than player, trans female, human
-Highest stat: Wits
-2nd highest: Fortitude
-Lowest stat: Grace
-Relationship prior to start: tutor/student (crush)
-Notable traits: 
-* Not nobility, but part of the nouveau riche, very girly
-* Dreams of being an artisan (rebelling against her family)
-* Has had a crush on player since they tutored her
---&gt;</tw-passagedata><tw-passagedata pid="14" name="DEV NOTES" tags="" position="0,300" size="100,100">&lt;!-- Git Messages
+(else:)[(either: [[[red|Red Outfit]]], [[[blue|Blue Outfit]]], [[[yellow|Yellow Outfit]]])] $clothing, at least.(if: (all-pass: where $stats is &quot;high&quot;))[ I think it suits you.&quot;]]</tw-passagedata><tw-passagedata pid="14" name="DEV NOTES" tags="" position="0,300" size="100,100">&lt;!-- Git Messages
 git commit
 git tag [version number] 
 git push
@@ -455,82 +392,38 @@ git push origin tag [version number]
 
 To Do:
 
-Thresholds (global variable/constant) for stat checks
+- Test nested datamaps
+
+- 
+
+DONE - bugfix thresholds
+
+DONE - Fill in cast descriptions beyond Emil
+
+DONE - Fix cast descriptions in [[Cast]] to show only one at a time
+
+DONE - Thresholds (global variable/constant) for stat checks
 * lower bound: 4 or 5
 * upper bound: 7 or 8
 Reason: easier than referring to a specific number repeatedly, can be adjusted once for playtesting purposes rather than in dozens or even hundreds of locations
 
-DONE - Rework outfit reference into [[Stopover]] to follow pronouns
+DONE - Rework outfit reference into [[Stopover]] to follow pronouns</tw-passagedata><tw-passagedata pid="15" name="Header" tags="header" position="0,400" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="Scratch" tags="" position="200,500" size="100,100">(set:$cast to (dm:
+$emil, (dm:
+$emil_strength, 8,
+$emil_fortitude, 9,
+$emil_grace, 9,
+$emil_charm, 6,
+$emil_wits, 4,
+$emil_love, 1,
+$emil_low_stat1, &quot;strength&quot;,
+$emil_low_stat2, &quot;fortitude&quot;,
+$emil_low_stat3, &quot;grace&quot;
+)
 
 
-Cast: 
 
-Victoria: slightly older than player, afab enby, human
-Highest stat: 
-2nd highest: 
-Lowest stat: 
-Relationship: master/maid
-NOT ROMANCEABLE
 
-Emil: same age as player, afab enby, human
-Highest stat: Grace 
-2nd highest: Fortitude
-Lowest stat: Charm
-Relationship prior to start: school acquaintances
-Notable traits: 
-* Excels at anything physical, especially sports
-* Less tact than poster putty
-* Kind-hearted puppy
-
-Ferdinand: slightly older than player, cismale, elfkin/incubus
-Highest stat: Charm
-2nd highest: Grace
-Lowest stat: Wit
-Relationship prior to start: friendly rivals
-Notable traits: 
-* Mischevious, playful, teasing
-* Doesn&#39;t care for other&#39;s feelings
-* Rakish, rogue, but would be *your* rakish rogue
-
-Gerard: older than player, cismale, hurokin?
-Highest stat: Strength
-2nd highest: Fortitude
-Lowest stat: Charm
-Relationship prior to start: student/tutor (chilly)
-Notable traits: 
-* Tutored player in swordplay, riding, other physical subjects
-* Expects player to be afraid of him, even now
-* Surprisingly warm once his walls come down (cuddly)
-
-Herne: older than player, amab enby, human/fey-touched (satyr)
-Highest stat: Wit
-2nd Highest: Charm
-Lowest stat: Fortitude
-Relationship prior to start: student/tutor (friendly)
-Notable traits: 
-* Uninterested in small talk, loves deep, philosophical conversations
-* Slow, methodical, meticulous in everything they do (even sex)
-* Librarian-type, bookish, unlikely to like player unless they can speak on the same level
-
-Isabel: slightly older than player, cisfemale, human/succubus
-Highest stat: Grace
-2nd highest: Charm
-Lowest stat: Strength
-Relationship prior to start: social acquaintances
-Notable traits: 
-* Haughty, bristly - comes off as arrogant
-* Actually just defensive bc she&#39;s used to being hurt
-* Excellent dancer, fencer
-
-Jacqueline: slightly younger than player, trans female, human
-Highest stat: Wit
-2nd highest: Fortitude
-Lowest stat: Grace
-Relationship prior to start: tutor/student (crush)
-Notable traits: 
-* Not nobility, but part of the nouveau riche, very girly
-* Dreams of being an artisan (rebelling against her family)
-* Has had a crush on player since they tutored her</tw-passagedata><tw-passagedata pid="15" name="Header" tags="header" position="0,400" size="100,100"></tw-passagedata></tw-storydata>
+))</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
